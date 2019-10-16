@@ -1,0 +1,12 @@
+Coder agent + environnement
+décider de l'architecture
+
+
+******Agent*******
+--- Experience Replay
+
+
+
+******Environnement****
+---Comment representer le board ?
+est ce que c'est si compliqué que ça pour un q learning simple ?
