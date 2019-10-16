@@ -4,6 +4,7 @@ décider de l'architecture
 
 ******Agent*******
 --- Experience Replay
+--- Epsilon greedy
 
 
 
