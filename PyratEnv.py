@@ -1,4 +1,6 @@
 # Imports
+import time
+
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
@@ -19,8 +21,9 @@ class PyratEnv(gym.Env):
         max_turns : max number of turns to avoid infinite games
     """
     metadata = {'render.modes': ['human', 'none']}
+    action_space = spaces.Discrete(4)
 
-    def __init__(self, width=21, height=15, nb_pieces_of_cheese=41, max_turns=2000):
+    def __init__(self, width=21, height=15, nb_pieces_of_cheese=41, max_turns=2000,no_mud = True ):
         self.max_turns = max_turns
         self.turn = 0
         self.maze = None
@@ -46,6 +49,10 @@ class PyratEnv(gym.Env):
             self.player1_location,
             self.player2_location,
             False)
+        if no_mud:
+            for start in self.maze :
+                for end in self.maze[start]:
+                    self.maze[start][end] = 1
 
     def _calculate_reward(self):
         """
@@ -81,7 +88,7 @@ class PyratEnv(gym.Env):
 
     def _check_done(self):
         return (self.turn >= self.max_turns) or (self.player1_score > (self.nb_pieces_of_cheese) / 2) or (
-                    self.player2_score > (self.nb_pieces_of_cheese) / 2)
+                self.player2_score > (self.nb_pieces_of_cheese) / 2)
 
     def step(self, action):
         self.turn += 1
@@ -120,10 +127,35 @@ class PyratEnv(gym.Env):
         # Reset player turns, score, misses
         self.player1_score, self.player2_score, self.player1_misses, self.player2_misses, self.player1_moves, self.player2_moves = 0, 0, 0, 0, 0, 0
 
+    # TODO : Rendering
+    # TODO : Sound
     def render(self, mode='human'):
-        pass
+        if mode == 'human':
+            pass
+        elif mode == "none":
+            pass
 
 
 if __name__ == '__main__':
     maze = PyratEnv()
+    import pygame
     print(maze.maze, maze.pieces_of_cheese)
+    pygame.init()
+    screen = pygame.display.set_mode((1920,1080))
+
+    screen.fill((255,255,255))
+    print(screen)
+    window_width, window_height = 1920,1080
+    scale, offset_x, offset_y, image_background, image_cheese, image_corner, image_moving_python, image_moving_rat, image_python, image_rat, image_wall, image_mud, image_portrait_python, image_portrait_rat, tiles, image_tile = init_coords_and_images(
+        maze.width, maze.height, True, True, window_width, window_height)
+
+
+    bg = build_background(screen, maze.maze, tiles, image_background, image_tile, image_wall, image_corner, image_mud, offset_x, offset_y, maze.width, maze.height, window_width, window_height, image_portrait_rat, image_portrait_python, scale, True, True),(0,0)
+    print(bg)
+    screen.blit(bg[0],(0,0))
+    running = True
+    while running:
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
