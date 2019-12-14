@@ -138,5 +138,6 @@ if __name__ == '__main__':
 """)
                 naive_QLearn2.parameter_tune()
                 naive_QLearn1.parameter_tune()
-    print(f'player 1 q_table : {naive_QLearn1.q_table}/n player2 q_table : {naive_QLearn2.q_table}')
+    print(f"""player 1 q_table : {naive_QLearn1.q_table}
+player2 q_table : {naive_QLearn2.q_table}""")
 
