@@ -10,6 +10,7 @@ from pyrat import move
 import numpy as np
 import pygame
 from config import cfg
+from pickle import load, dump
 
 # CONSTANTS
 DECISON_FROM_ACTION_DICT = {
@@ -19,9 +20,9 @@ DECISON_FROM_ACTION_DICT = {
     3: 'D'
 }
 
-
 class PyratEnv(gym.Env):
     # TODO : add mud
+    # TODO : code a replay system and a replayer
     """
     Description:
         2 agents compete in a maze for rewards roanomly dispersed in the maze. The goal is to collect the most.
@@ -139,6 +140,16 @@ class PyratEnv(gym.Env):
         self.player2_last_move = None
         self.bg= None
 
+    @classmethod
+    def fromPickle(cls, p = "./maze_files/maze.p"):
+        """
+        Lets you load a given maze from a previously pickled object
+        Sample can be found under ./maze_files/maze.p
+        :param p: the path to the maze
+        :return: the object instance
+        """
+        return load(open(p,'rb'))
+
     def step(self, action):
         self.turn += 1
         # Perform both player's actions on the maze variables
@@ -215,6 +226,15 @@ class PyratEnv(gym.Env):
             pass
 
     # Utils methods
+
+    def save_pickle(self, path = "./maze_files/maze_save.p"):
+        """
+        pickles the maze to the given path
+        :param path: the path to save to
+        :return:
+        """
+        dump(self, open(path, "wb"))
+
     def _observation(self):
         return dict({
             'Maze': self.maze_matrix,
@@ -288,19 +308,24 @@ class PyratEnv(gym.Env):
 if __name__ == '__main__':
     maze = PyratEnv()
     import pygame
-
-    print(maze.step((3, 3)))
+    path = 'D:\\Users\\Minh Tri Truong\\Documents\\IMT\\Projets ML\\Q-Learning-PyRat\\maze.p'
+    maze.save_pickle(path)
+    maze2 = PyratEnv.fromPickle(path)
+    print(maze.maze)
+    print(maze.cheese_matrix)
+    print(maze2.maze)
+    print(maze2.cheese_matrix)
     print(f'position du joueur 1 : {maze.player1_location}\nposition du jooueur 2 : {maze.player2_location}')
 
-    print(maze.cheese_matrix)
-    while True :
-        print(maze.step((random.randint(0,3), random.randint(0,3))))
-        print(f'position du joueur 1 : {maze.player1_location}\nposition du jooueur 2 : {maze.player2_location}')
-        maze.render()
+    # print(maze.cheese_matrix)
+    # while True :
+    #     print(maze.step((random.randint(0,3), random.randint(0,3))))
+    #     print(f'position du joueur 1 : {maze.player1_location}\nposition du jooueur 2 : {maze.player2_location}')
+    #     maze.render()
     #print("display is ", pygame.display.get_init())
     # pygame.init()
     #
-    # time.sleep(0.2)
+     #   time.sleep(0.03)
     # screen = pygame.display.set_mode((1920, 1080))
     #
     # window_width, window_height = 1920, 1080
