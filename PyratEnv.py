@@ -202,13 +202,13 @@ class PyratEnv(gym.Env):
         if mode == 'human':
             (window_width, window_height) = cfg['resolution']
             scale, offset_x, offset_y, image_background, image_cheese, image_corner, image_moving_python, image_moving_rat, image_python, image_rat, image_wall, image_mud, image_portrait_python, image_portrait_rat, tiles, image_tile = init_coords_and_images(
-                maze.width, maze.height, True, True, window_width, window_height)
+                self.width, self.height, True, True, window_width, window_height)
             if self.bg is None:
                 pygame.init()
                 screen = pygame.display.set_mode(cfg['resolution'])
-                self.bg = build_background(screen, maze.maze, tiles, image_background, image_tile, image_wall, image_corner,
+                self.bg = build_background(screen, self.maze, tiles, image_background, image_tile, image_wall, image_corner,
                                   image_mud,
-                                  offset_x, offset_y, maze.width, maze.height, window_width, window_height,
+                                  offset_x, offset_y, self.width, self.height, window_width, window_height,
                                   image_portrait_rat,
                                   image_portrait_python, scale, True, True)
             screen = pygame.display.get_surface()
@@ -221,6 +221,7 @@ class PyratEnv(gym.Env):
                         window_height, screen, True, True, self.player1_last_move, self.player1_misses, self.player2_last_move, self.player2_misses, 0,
                         0)
             pygame.display.update()
+            pygame.event.get()
 
         elif mode == "none":
             pass
