@@ -1,23 +1,29 @@
-## Projet reinforcement learning sur Pyrat
+## Reinforcement learning project on [Pyrat for the IMT Atlantique course PyRat](https://github.com/vgripon/PyRat)
 IMTA 2019-2020
 
+### Dependencies :
+- gym
+- pygame 
+- numpy
 ---
-### Objectifs:
-- Créer un framework compréhensible et simple à prendre en main de reinforcement learning Pyrat. À priori basé sur [le framework OpenAI Gym](http://gym.openai.com/) .
+### Objectives :
+- Create a simple reinforcement learning framework for Pyrat. A priori based on  [the OpenAI Gym framework](http://gym.openai.com/) .
 
 
-### Amélioration possibles :
+### Amélioration possibles (See issues for more details) :
 
-- coder le jeu avec de la boue
-- coder un système de replay 
-- coder la méthode .render() de la classe PyratEnv. Possiblement changer le renderer (pour l'instant Pyrat) pour quelque chose de plus moderne.  
-Peut-être pyglet ?
-[Il y a un framework intégré dans gym](https://github.com/openai/gym/blob/master/gym/envs/classic_control/rendering.py) 
-- Changer la structure du code pour le rendre plus lisible/plus modulable/plus maintenable.  
-On pourrait par exemple faire plus de paquets Python importable ?  
-Faire des interfaces/classes abstraites ?
-- Améliorer les méthodes de save d'agents et de labyrinthes.  
-Ça vaudrait peut-être le coup de regarder le *design pattern Memento*.
+- Code the game to implement mud.
+- Code a replaying system.
+- Code the .render() method of the PyratEnv class. Possibly change the render engine (it's Pygame for now) for something more modern.  
+Maybe Pyglet ?
+[There's a 2D rendering framework included in Gym](https://github.com/openai/gym/blob/master/gym/envs/classic_control/rendering.py) 
+- Change the structure of the code to make it more maintainable, easy to use and modular.  
+One solution could be to make the environment class and others into python packages ?  
+Make more abstract classes ?
+- Improve the saving code for the agents and the maze.  
+Might be worth it to look into the *design pattern Memento*.
 
 
-Ouvert à toutes suggestions hésitez pas.
+Open to any suggestions, hit me up :  
+ngoc-minh-tri.truong@imt-atlantique.net  
+Or my facebook for those who have it :)
