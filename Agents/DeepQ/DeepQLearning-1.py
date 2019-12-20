@@ -31,9 +31,10 @@ class DeepQLearning:
         self._initialize_prediction_nn()
         self.nn_target = None
         self._initialize_target_nn()
-
+    #todo : à implémenter, une methode pour charger un agent avec un reseau de neurones qui a deja ete entrainé
     @classmethod
     def fromNN(cls,path):
+        pass
 
 
     def save_NN(self,path):

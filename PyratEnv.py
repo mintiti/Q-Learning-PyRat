@@ -78,7 +78,6 @@ class PyratEnv(gym.Env):
     metadata = {'render.modes': ['human', 'none']}
     reward_range = (-1, 1)
 
-    # TODO : Code the action and observation spaces properly
     def __init__(self, width=21, height=15, nb_pieces_of_cheese=41, max_turns=2000, no_mud=True):
         self.max_turns = max_turns
         self.turn = 0
@@ -196,7 +195,7 @@ class PyratEnv(gym.Env):
         self._maze_matrix_from_dict()
 
 
-    # TODO : Rendering
+    # TODO : Rendering : maybe switch it to something better than pygame
     # TODO : Sound
     def render(self, mode='human'):
         if mode == 'human':
