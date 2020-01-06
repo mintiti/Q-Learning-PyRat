@@ -10,7 +10,7 @@ IMTA 2019-2020
 - Create a simple reinforcement learning framework for Pyrat. A priori based on  [the OpenAI Gym framework](http://gym.openai.com/) .
 
 
-### Amélioration possibles (See issues for more details) :
+### Possible improvements (See issues for more details) :
 
 - Code the game to implement mud.
 - Code a replaying system.
