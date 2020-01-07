@@ -1,5 +1,5 @@
 import tensorflow as tf
-import PyratEnv
+from PyratEnv import PyratEnv
 import random as rd
 import numpy as np
 from collections import deque
@@ -136,11 +136,12 @@ def test_agents(agent1, agent2):
 
 
 if __name__ == '__main__':
+    #Utiliser un env wrapper pour flatten l'obs space
     import os
     import matplotlib.pyplot as plt
     import time
 
-    maze_file = "..\\..\\maze_files\\maze.p"
+    maze_file = "D:\\Users\\Minh Tri Truong\\Documents\\IMT\\Projets ML\\Q-Learning-PyRat\\saves\\mazes\\maze.p"
     dirname = os.path.dirname(os.path.abspath(__file__))
     maze_file = os.path.join(dirname, maze_file)
 

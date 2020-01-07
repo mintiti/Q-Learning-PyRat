@@ -15,11 +15,9 @@
 #    You should have received a copy of the GNU General Public License
 #    along with PyRat.  If not, see <http://www.gnu.org/licenses/>.
 
-from imports.parameters import *
 import pygame
 import random
-import datetime
-from pygame import locals
+
 
 def image_of_maze(maze, tiles, image_tile, image_wall, image_corner, image_mud, offset_x, offset_y, scale, width, height, screen, window_height):
     global mud_range

@@ -17,7 +17,7 @@
 
 import random
 import sys
-import imports.parameters
+
 
 # compute the connected component of a given initial cell with depth-first search
 def connected_region(maze, cell, connected, possible_border):

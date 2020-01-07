@@ -1,17 +1,14 @@
 # Imports
-import time
 
 import gym
-from gym import error, spaces, utils
-from gym.utils import seeding
-from imports.maze import *
-from imports.display import *
-from pyrat import move
+from gym import spaces
+from PyratEnv.pyrat import move
 import numpy as np
-import pygame
 from config import cfg
 from pickle import load, dump
-
+import random
+from imports.maze import *
+from imports.display import *
 # CONSTANTS
 DECISON_FROM_ACTION_DICT = {
     0: 'L',
