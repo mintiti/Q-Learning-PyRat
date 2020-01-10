@@ -1,4 +1,4 @@
-## Reinforcement learning project on [Pyrat for the IMT Atlantique course PyRat](https://github.com/vgripon/PyRat)
+## Aritificial intelligence framework for [Pyrat for the IMT Atlantique course PyRat](https://github.com/vgripon/PyRat)
 IMTA 2019-2020
 
 ### Dependencies :
