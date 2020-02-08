@@ -2,13 +2,13 @@
 
 import gym
 from gym import spaces
-from PyratEnv.pyrat import move
+from .pyrat import move
 import numpy as np
-from config import cfg
+from .config import cfg
 from pickle import load, dump
 import random
-from imports.maze import *
-from imports.display import *
+from .imports.maze import *
+from .imports.display import *
 # CONSTANTS
 DECISON_FROM_ACTION_DICT = {
     0: 'L',
@@ -217,7 +217,9 @@ class PyratEnv(gym.Env):
                         window_height, screen, True, True, self.player1_last_move, self.player1_misses, self.player2_last_move, self.player2_misses, 0,
                         0)
             pygame.display.update()
-            pygame.event.get()
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT :
+                    pygame.quit()
 
         elif mode == "none":
             pass
@@ -303,16 +305,16 @@ class PyratEnv(gym.Env):
 
 
 if __name__ == '__main__':
-    maze = PyratEnv()
     import pygame
-    path = 'D:\\Users\\Minh Tri Truong\\Documents\\IMT\\Projets ML\\Q-Learning-PyRat\\maze.p'
-    maze.save_pickle(path)
+    path = 'D:\\IMT\\Projets_ML\\Q-Learning-PyRat\\maze.p'
     maze2 = PyratEnv.fromPickle(path)
-    print(maze.maze)
-    print(maze.cheese_matrix)
     print(maze2.maze)
     print(maze2.cheese_matrix)
-    print(f'position du joueur 1 : {maze.player1_location}\nposition du jooueur 2 : {maze.player2_location}')
+    print(maze2.maze)
+    print(maze2.cheese_matrix)
+    print(f'position du joueur 1 : {maze2.player1_location}\nposition du jooueur 2 : {maze2.player2_location}')
+    while True :
+        maze2.render()
 
     # print(maze.cheese_matrix)
     # while True :

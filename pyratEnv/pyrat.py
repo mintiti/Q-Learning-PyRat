@@ -17,9 +17,9 @@
 #    along with PyRat.  If not, see <http://www.gnu.org/licenses/>.
 
 # Imports
-from imports.parameters import *
-from imports.maze import *
-from imports.display import *
+from .imports.parameters import *
+from .imports.maze import *
+from .imports.display import *
 import importlib.util
 import sys
 import time

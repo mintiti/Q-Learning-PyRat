@@ -1,5 +1,5 @@
 import tensorflow as tf
-from PyratEnv import PyratEnv
+from pyratEnv import PyratEnv
 import random as rd
 import numpy as np
 from collections import deque

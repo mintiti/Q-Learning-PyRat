@@ -1,4 +1,4 @@
-from PyratEnv import PyratEnv
+from pyratEnv import PyratEnv
 import pickle
 import random
 import numpy as np
