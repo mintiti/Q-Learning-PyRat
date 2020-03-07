@@ -24,5 +24,5 @@ Make more abstract classes ?
 Might be worth it to look into the *design pattern Memento*.
 
 
-Open to any suggestions, hit me up :  
+Open to any suggestions, feel free to open pull requests.
 ngoc-minh-tri.truong@imt-atlantique.net 
