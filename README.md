@@ -25,5 +25,4 @@ Might be worth it to look into the *design pattern Memento*.
 
 
 Open to any suggestions, hit me up :  
-ngoc-minh-tri.truong@imt-atlantique.net  
-Or my facebook for those who have it :)
+ngoc-minh-tri.truong@imt-atlantique.net 
